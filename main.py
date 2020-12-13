@@ -27,12 +27,20 @@ class Data:
             if content['name'] == "Coronavirus Cases:":
                 return content['value']
 
-        def get_total_death(self):
+    def get_total_deaths(self):
         data = self.data['total']
 
         for content in data:
             if content['name'] == "Deaths:":
                 return content['value']
+
+    def get_total_recovered(self):
+        data = self.data['total']
+
+        for content in data:
+            if content['name'] == "Recovered:":
+                return content['value']
+    
 
 data = Data(API_KEY, PROJECT_TOKEN)
 print(data.data['total'])
