@@ -1,5 +1,8 @@
 import requests
 import json
+import pyttsx3
+import speech_recognition as sr
+import re
 
 API_KEY = "tYvBkdiiJEVQ"
 PROJECT_TOKEN = "tTJVZUWJFGGq"
@@ -55,3 +58,10 @@ class Data:
 
 data = Data(API_KEY, PROJECT_TOKEN)
 print(data.get_country_data('usa')['total_cases'])
+
+def speak(text):
+    engine = pyttsx3.init()
+    engine.say(text)
+    engine.runAndwait()
+
+speak("Hello")
