@@ -62,6 +62,21 @@ print(data.get_country_data('usa')['total_cases'])
 def speak(text):
     engine = pyttsx3.init()
     engine.say(text)
-    engine.runAndwait()
+    engine.runAndWait()
 
-speak("Hello")
+# speak("Hello")
+
+def get_audio():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        audio = r.listen(source)
+        said = ""
+
+        try:
+            said = r.Recognize_google(audio)
+        except Exception as e:
+            print("Exception:", str(e))
+
+    return said.lower()
+
+print(get_audio())
