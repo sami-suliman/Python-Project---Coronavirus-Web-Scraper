@@ -79,4 +79,15 @@ def get_audio():
 
     return said.lower()
 
-print(get_audio())
+# print(get_audio())
+
+def main():
+    print("Started Program")
+    END_PHRASE = "stop"
+    while True:
+        print("Listening...")
+        text = get_audio()
+
+        if text.find(END_PHRASE):   # Stop Loop
+            break
+
